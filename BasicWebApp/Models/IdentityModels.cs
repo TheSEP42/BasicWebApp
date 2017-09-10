@@ -16,6 +16,16 @@ namespace BasicWebApp.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        //TODO: Separate into address model
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string City { get; set; }
+        public string County { get; set; }
+        public string PostCode { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

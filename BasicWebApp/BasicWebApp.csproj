@@ -17,7 +17,7 @@
     <AssemblyName>BasicWebApp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -201,6 +201,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709102137248_InitialCreate.cs" />
+    <Compile Include="Migrations\201709102137248_InitialCreate.Designer.cs">
+      <DependentUpon>201709102137248_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709102223060_AddUserData.cs" />
+    <Compile Include="Migrations\201709102223060_AddUserData.Designer.cs">
+      <DependentUpon>201709102223060_AddUserData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -277,6 +286,14 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709102137248_InitialCreate.resx">
+      <DependentUpon>201709102137248_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709102223060_AddUserData.resx">
+      <DependentUpon>201709102223060_AddUserData.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -295,7 +312,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52941</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52941/</IISUrl>
+          <IISUrl>http://localhost/BasicWebApp</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
