@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -174,6 +175,16 @@ namespace BasicWebApp.Controllers
                     County = model.County,
                     PostCode = model.PostCode
                 };
+
+                string pattern = "^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) [0-9][A-Za-z]{2})$";
+                Regex rgx = new Regex(pattern);
+
+                if (!rgx.IsMatch(model.PostCode))
+                {
+                    AddManualErrorMessage("Please enter a valid postcode");
+                    return View(model);
+                }
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -463,6 +474,11 @@ namespace BasicWebApp.Controllers
             {
                 ModelState.AddModelError("", error);
             }
+        }
+
+        private void AddManualErrorMessage(string message)
+        {
+            ModelState.AddModelError("", message);
         }
 
         private ActionResult RedirectToLocal(string returnUrl)

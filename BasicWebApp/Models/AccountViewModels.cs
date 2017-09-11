@@ -97,6 +97,7 @@ namespace BasicWebApp.Models
         public string County { get; set; }
 
         [Required]
+        [DataType(DataType.PostalCode)]
         [Display(Name = "Post Code")]
         public string PostCode { get; set; }
 
