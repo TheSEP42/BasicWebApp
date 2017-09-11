@@ -97,7 +97,11 @@ namespace BasicWebApp.Controllers
             return View();
         }
 
-
+        // GET: /Account/ThankYou
+        public ActionResult ThankYou()
+        {
+            return View();
+        }
 
         //
         // GET: /Account/VerifyCode
@@ -181,7 +185,7 @@ namespace BasicWebApp.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("ThankYou", "Account");
                 }
                 AddErrors(result);
             }
